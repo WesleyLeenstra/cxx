@@ -5,10 +5,6 @@
 * Description: Step 1 of pointer assignments.
 */
 
-* Author: Niels en Wesley
-* Version: 1
-* Description: opdracht 1: Pointers step 1
-*/
 #include <stdlib.h>
 #include <stdio.h>
 
