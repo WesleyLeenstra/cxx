@@ -19,14 +19,13 @@ char* phonemes[] = {"AA", "AE", "AH", "AO", "AW", "AX", "AY", "b", "CH", "d",
 struct word
 {
 	int length;
-	int wordPart[2];
+	int wordPart[];
 };
 
 typedef struct listNodeTag
 {
 	struct listNodeTag *next;
-	//datavelden
-	int value;
+	struct word word;
 } listNode;
 
 /*
@@ -67,7 +66,7 @@ void playList(listNode* n)
 {
 	while (n != 0)
 	{
-		printf("%d", n->value);
+		//printf("%d", n->value);
 		if(n -> next != 0)
 		{
 			printf(" --> ");
@@ -83,6 +82,33 @@ void playList(listNode* n)
 */
 int main(void)
 {
+	struct word word0;
+	struct word word1;
+	struct word word2;
+
+	//Word: ik
+	word0.length = 2;
+	word0.wordPart[0] = 18;
+	word0.wordPart[1] = 20;
+
+	//Word: ben
+    word1.length = 3;
+    word1.wordPart[0] = 7;
+    word1.wordPart[1] = 21;
+    word1.wordPart[2] = 23;
+
+    //Word: PC
+	word2.length = 4;
+	word2.wordPart[0] = 27;
+	word2.wordPart[1] = 13;
+	word2.wordPart[2] = 40;
+	word2.wordPart[3] = 13;
+
+	struct word words[2];
+	words[0] = word0;
+	words[1] = word1;
+	words[2] = word2;
+
 	listNode *head = 0;
 	listNode *tail = 0;
 	int aantalNodes = 3;
@@ -90,7 +116,19 @@ int main(void)
 	for (int n = 0; n < aantalNodes; n++)
 	{
 		listNode *newNode = (listNode *) malloc(sizeof(listNode));
+		newNode -> word = words[n];
+		newNode -> next = 0;
+		if(head == 0)
+		{
+			head = tail = newNode;
+		}
+		else
+		{
+			tail = tail -> next = newNode;
+		}
 	}
+
+	playList(head);
     /*
     * declare a struct here and make a pointer to that struct
     * Fill the struct with data (the length and the wordParts)
