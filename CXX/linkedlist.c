@@ -19,7 +19,7 @@ char* phonemes[] = {"AA", "AE", "AH", "AO", "AW", "AX", "AY", "b", "CH", "d",
 struct word
 {
 	int length;
-	int wordPart[];
+	int wordPart[4];
 };
 
 typedef struct listNodeTag
@@ -66,11 +66,8 @@ void playList(listNode* n)
 {
 	while (n != 0)
 	{
-		//printf("%d", n->value);
-		if(n -> next != 0)
-		{
-			printf(" --> ");
-		}
+		playStruct(&n->word);
+
 		n = n -> next;
 	}
 	printf("\n");
@@ -104,7 +101,7 @@ int main(void)
 	word2.wordPart[2] = 40;
 	word2.wordPart[3] = 13;
 
-	struct word words[2];
+	struct word words[3];
 	words[0] = word0;
 	words[1] = word1;
 	words[2] = word2;
@@ -129,23 +126,6 @@ int main(void)
 	}
 
 	playList(head);
-    /*
-    * declare a struct here and make a pointer to that struct
-    * Fill the struct with data (the length and the wordParts)
-    * pass the pointer to the playStruct() function
-    *
-    * The wordPart integer array should be filled with the index numbers
-    * of the phoneme list. The example wordPart[0] = 0 will play the phoneme "AA" and
-    * wordPart[1] = 3 will play the phoneme "AO".
-    */
-	/*struct word hoi;
-
-	hoi.length = 2;
-	hoi.wordPart[0] = 16;
-	hoi.wordPart[1] = 26;
-
-    playStruct(&hoi);*/
-
 
     return 0;
 }
