@@ -12,6 +12,7 @@
 /*
 * char* phonemes is an array containing all phoneme file names
 */
+
 char* phonemes[] = {"AA", "AE", "AH", "AO", "AW", "AX", "AY", "b", "CH", "d",
                     "DH", "EH", "ER", "EY","f", "g", "HH", "IH", "IY", "j",
                     "k", "l", "m", "n", "NG", "OW", "OY", "p", "r", "s", "SH",
@@ -22,8 +23,10 @@ char* phonemes[] = {"AA", "AE", "AH", "AO", "AW", "AX", "AY", "b", "CH", "d",
 * For this exercise implement a struct with an integer "length"
 * and an integer array "wordPart"
 */
+
 struct word
-{
+{	
+	// Create struct "Length" and "Wordpart"
 	int length;
 	int wordPart[4];
 };
@@ -39,6 +42,7 @@ typedef struct listNodeTag
 * Note that this function is blocking (eg your program will not continue until
 * linux has finished playing the audio file).
 */
+
 int playSound(char *filename )
 {
     char command[256];
@@ -57,6 +61,7 @@ int playSound(char *filename )
 * If you created a struct with a typedef and named it "word" you can use this
 * function directly. Otherwise you need to modify the parameter part of this function.
 */
+
 int playStruct(struct word *structPointer)
 {
     int i;
@@ -70,7 +75,8 @@ int playStruct(struct word *structPointer)
 
 void playList(listNode* n)
 {
-	while (n != 0)
+	// Create While loop for PlayStruct function
+	while (n != 0)	
 	{
 		playStruct(&n->word);
 
@@ -79,12 +85,9 @@ void playList(listNode* n)
 	printf("\n");
 }
 
-/*
-* Build a program using the struct and the playWord function to playback an entire word
-* Choose a small word of 4 or 5 letters to play.
-*/
 int main(void)
 {
+	// Three differen words are created
 	struct word word0;
 	struct word word1;
 	struct word word2;
