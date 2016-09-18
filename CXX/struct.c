@@ -1,3 +1,10 @@
+/*
+* File: struct.c
+* Author: Wesley Leenstra (0879752) & Niels Vogelaar (0874968)
+* Version: 1.0
+* Description: Struct assignment.
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
