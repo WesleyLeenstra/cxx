@@ -1,3 +1,9 @@
+/*
+* File: linkedlist.c
+* Author: Wesley Leenstra (0879752) & Niels Vogelaar (0874968)
+* Version: 1.0
+* Description: Linkedlist assignment.
+*/
 
 #include <stdlib.h>
 #include <stdio.h>
