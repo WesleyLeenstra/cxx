@@ -44,6 +44,7 @@ DLLNode* getFirstAfter(bool (*predicate)(void *data), DLLNode *positionNode, dou
 
 //returns the total ammount of nodes
 int getNodeCount(doubleLinkedList *DLL);
+// BroJZ: return type zou size_t moeten zijn
 
 //Deletes the doubleLinkedList and frees memory
 void dispose(doubleLinkedList *DLL, DataFreeFunction datafree);
@@ -56,6 +57,7 @@ doubleLinkedList *createEmptyDLL();
 //Function used to free data in a node
 void data_free(void* data);
 
+// BroJZ: onderstaande functies horen niet in de API -1
 //Function used to create a integer
 int *setInt(int data);
 

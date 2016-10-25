@@ -68,6 +68,8 @@ void addNodeAfter(DLLNode *newNode, DLLNode *positionNode, doubleLinkedList *DLL
 	}
 }
 
+// BroJZ: onnodige code duplicatie in add functies -1
+
 DLLNode* searchFirst(bool (*predicate)(void *data), doubleLinkedList *DLL)
 {
 	DLLNode* currentNode = DLL->head;			//Set the current node to the head of the list
@@ -128,13 +130,17 @@ DLLNode* getFirstAfter(bool (*predicate)(void *data), DLLNode *positionNode, dou
 	return NULL;								//If nothing is found return NULL
 }
 
+// BroJZ: onnodige code duplicatie in search functies
+
 int getNodeCount(doubleLinkedList *DLL)
 {
 	int count = 0;								//Create count integer
 
 	DLLNode* currentNode = DLL->head;			//Set the current node to the tail of the list
 
+// BroJZ: OOPS gaat fout als head NULL is! -2    
 	while(currentNode->next != NULL)			//Loop till the beginning of the list
+// BroJZ: waarom niet currentNode != NULL dan is extra count++ aan het einde ook niet meer nodig
 	{
 		count++;								//Add +1 to count
 
@@ -169,6 +175,7 @@ void data_free(void* data)
 DLLNode *createUnlinkedNode(void *data)
 {
 	DLLNode *newNode = (DLLNode*)malloc(sizeof(DLLNode));	//Allocate memory for the new node
+// BroJZ: return waarde van malloc moet je checken -1
 
 	newNode->data = data;						//Set variables to default values
 	newNode->next = NULL;
